@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Game</title>
+    <link href="icon.ico" rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/myGameEngine.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/gameDetails.js"></script>
+    <script type="text/javascript" src="js/enemyDetails.js"></script>
+    <script type="text/javascript" src="js/heroDetails.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+  </head>
+  <body>
+    <div class="introCont">
+      <div class="name"><img src="images/name.png" alt=""></div>
+      <div class="insp"><img src="images/insp.png" alt=""></div>
+      <div class="help popup">
+        <div class="titleBar">Help <div class="closeDailog">Close</div></div>
+        <div class="details">
+          <h2 style="text-align:center; text-transform: uppercase;">Controls</h2>
+          <p style="width:49%; display:inline-block"><b>UP ARROW : </b> move up side</p>
+          <p style="width:49%; display:inline-block"><b>DOWN ARROW : </b> move down side</p>
+          <p style="width:49%; display:inline-block"><b>LEFT ARROW : </b> move left side</p>
+          <p style="width:49%; display:inline-block"><b>RIGHT ARROW : </b> move right side</p>
+          <p style="width:49%; display:inline-block"><b>SPACE BAR : </b> to shoot enemies</p>
+
+          <h2 style="text-align:center; text-transform: uppercase;">Game Rules</h2>
+          <p>Clear all enemies to reach next stage. Try to get energies which bring out after each enemy's destroyed, it'll increase your
+          health. Whenever you fill your health bar your plane will be an upgrade, bullet power also increase help to destroy enemies easily.
+          Interval of next bullet fire depends on your health status, if your health bar 10% it'll take a bit time to next shoot, but if
+          your health is 90% next shoot will take less interval. There also a couple of special powers. few of them increase your movement
+          speed, bullet speed, protection and some of them reduce your movement speed, bullet speed, protection. The special powers are least
+          only for 10 seconds. Now it's time to play the game, hope you'll enjoy a lot.</p>
+        </div>
+      </div>
+      <div class="about popup">
+        <div class="titleBar">About / Information <div class="closeDailog">Close</div></div>
+        <div class="details">
+          <h2 style="text-align:center; text-transform: uppercase;">About The Creator</h2>
+          <p class="me"><img src="images/me.jpg" alt=""></p>
+          <p style="width:49%; display:inline-block; margin:20px 5px 5px;"><b>Name : </b> Sudipta Mondal</p>
+          <p style="width:49%; display:inline-block; margin:5px;"><b>Email : </b> <a style="color:black; text-decoration:none;" href="mailto:sudiptacooline@gmail.com">sudiptacooline@gmail.com</a> </p>
+          <p style="width:49%; display:inline-block;  margin:5px;"><b>Facebook : </b> <a style="color:black; text-decoration:none;" href="https://www.facebook.com/sudipta.mondal.779" target="_blank">https://www.facebook.com/sudipta.mondal.779</a></p>
+          <p style="width:49%; display:inline-block; margin:5px;"><b>Created : </b> September, 2017</p>
+          <p style="width:49%; display:inline-block; margin:5px;"><b>Licence : </b> Free for distribution and entertainment purposes only.</p>
+          <p style="clear:both;"></p>
+          <h2 style="text-align:center; text-transform: uppercase;">About The Game Technology</h2>
+          <p>This game is very basic and common technologies used by me. UI based on HTML5 and CSS3, most of the animations
+          are jQuery animation, and a fews are CSS3 animations. This game is 90% responsive, can fit any stander size device.
+          I have made a very basic game engine using javascript who just controling the game FPS (Frame Per Seconds). This
+          is a 24 FPS high graphics game for normal processor can perfrom faster.</p>
+        </div>
+      </div>
+      <ul class="gameMenu">
+        <li id="gameStart"><img src="images/play.png" alt=""></li>
+        <li id="gameHelp"><img src="images/help.png" alt=""></li>
+        <li id="gameAbout"><img src="images/about.png" alt=""></li>
+        <li id="gameExit"><img src="images/exit.png" alt=""></li>
+      </ul>
+    </div>
+    <div class="pageArea">
+        <div class="statusBar">
+
+          <div class="tools">
+            <button id="music" title="Background Music"></button>
+            <button id="sounds" title="Game Sound Effects"></button>
+            <button id="suffle"  title="Background Music Random Change"></button>
+            <button id="pause" title="Pause game"></button>
+          </div>
+
+          <div class="pannel">
+            <div class="radar">
+                <div class="raderBar"> </div>
+            </div>
+            <img src="images/pannelLeft.png" alt=""><!--
+            --><img src="images/pannelRight.png" alt="">
+          </div>
+
+          <div class="miniPannel lvlTxt"> Lavel : <span id="stage">4</span> </div>
+          <div class="miniPannel lvlTxt"> Power : <span id="bulletPower">4</span> </div>
+          <div class="powerBar">
+            <span></span>
+            <div class="healthInfo">
+               <b id="currentHealth">0</b> / <b id="healthToReach">0</b>
+            </div>
+          </div>
+          <div class="specialPowerSection">
+            <h4>Special Power :</h4>
+            <div class="displayPower"></div>
+            <div class="timeLeft">15</div>
+          </div>
+        </div>
+        <div class="gameArea">
+            <div id="sky"> <img src="images/spaceBg.jpg" alt="1" /> </div>
+            <div class="hero" id="hero"><img src="images/flight1.png" /></div>
+            <div id="mission"><img src="images/mission.png" /></div>
+            <div id="complete"><img src="images/complete.png" /></div>
+        </div>
+    </div>
+  </body>
+</html>

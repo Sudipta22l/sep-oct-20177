@@ -1,0 +1,125 @@
+body, html{height: 100%;}
+body{margin: 0; padding: 0; position: relative; font-size: 62.5%; overflow: hidden;}
+*{box-sizing: border-box;}
+
+
+.pageArea{width:100%; /*max-width: 1200px;*/ margin: 0 auto; height: 100%;}
+.tools{padding: 15px 5%; text-align: center;}
+.tools #music{width: 20px; height: 20px; display: inline-block; background:url('../images/music.png') no-repeat; background-size: 100% 100% !important;
+ border: 1px solid #333; cursor: pointer; border-radius: 5px; outline: none;}
+.tools #sounds{width: 20px; height: 20px; display: inline-block; background:url('../images/sound.png') no-repeat; background-size: 100% 100% !important;
+  border: 1px solid #333; cursor: pointer; border-radius: 5px; outline: none;}
+.tools #suffle{width: 20px; height: 20px; display: inline-block; background:url('../images/suffle.png') no-repeat; background-size: 100% 100% !important;
+   border: 1px solid #333; cursor: pointer; border-radius: 5px; outline: none;}
+.tools #pause{width: 20px; height: 20px; display: inline-block; background:url('../images/pause.png') no-repeat; background-size: 100% 100% !important;
+      border: 1px solid #333; cursor: pointer; border-radius: 5px; outline: none;}
+.statusBar{background: url('../images/metallicBg.jpg'); background-size:auto 100%; width:30%; /*max-width: 350px;*/ float: left;
+ height: 100%; overflow: hidden;}
+.gameArea{background: black; float: left; width: 70%; /*max-width:850px;*/ height: 100%; overflow: hidden; position: relative;}
+.radar{width: 90%; height:70%; background: url('../images/radarBg.jpg'); background-size: 50%; position: absolute;
+ top:15%; left:5%; overflow: hidden;}
+.raderBar{width: 9rem; height: 9rem; border-radius: 50%; background: url('../images/radarBar.png') no-repeat center; background-size:auto 100%;
+animation: spin1 5s infinite linear; margin: 0 auto; height: 100%;}
+.lavelInfo{margin: 10px; text-align: center; font-size: 2rem; color: #fff; }
+.pannel{position: relative; width: 80%; max-width: 320px; margin: 0 auto; overflow: hidden;}
+.pannel img { width: 50%; position: relative;}
+.miniPannel{width: 100%; max-width: 250px; max-height:100px; background:url('../images/miniPannel.png') no-repeat center;
+background-size:100% 100%;}
+.lvlTxt{font-size:2rem; color:#fff; text-align: center; padding:10px; line-height:4rem; margin: 10px auto;}
+.powerBar{width: 80%; height: 25px; border: 2px solid #0481b9; margin: 10px auto; position: relative;}
+.powerBar span{width: 0%; max-width: 100%; height: 100%; position: absolute; top: 0; left: 0;}
+.healthInfo{position: absolute; top: 0; left: 0; right: 0; bottom: 0; text-align: center; color: #fff; font-size: 1rem; line-height: 22px;}
+.hero{position: absolute; z-index: 9999;}
+#sky{position: relative; top: 0; left: 0; z-index: 1; width: 100%; height: 100%;}
+#sky img{position: absolute; width: 100%; bottom: 0; left: 0;}
+.planet{position: absolute; overflow: hidden; background-repeat: no-repeat; background-position: center; background-size:100% 100% !important; }
+.heroBullet, .bullet, .enemyBullet{position: absolute; z-index: 500; background-size: 100% 100% !important;}
+
+.enemy{position: absolute; z-index: 600;}
+.enemyHealthBar{width: 100%; height: 4px; background: rgba(255,255,255, .5); position: absolute; top: -5px; left: 0;}
+.enemyHealthBar span{height: 2px; background:rgba(255,0,0, .5); width: 100%; position:absolute; top: 1px; left: 0;}
+
+#mission{ width:500px; position: absolute; z-index: 99999999; top: -40%; left: 50%; transform: translateX(-50%) translateY(-50%);}
+#mission img{width: 100%;}
+#complete{ width:600px; position: absolute; z-index: 99999999; top:160%; left: 50%; transform: translateX(-50%) translateY(-50%);}
+#complete img{width: 100%;}
+
+.energy{font-size:20px; line-height:50px;color: white; text-align: center; width: 50px; height: 50px; z-index: 999; position:absolute; border-radius: 50%;}
+.energyVal{width: 100%; height: 100%; position: absolute;}
+.energyBg{width: 100%; height: 100%; position: absolute; animation: spin1 2s infinite linear;}
+.energyBg img, .power img{width:100%;}
+.power{font-size:20px; line-height:50px;color: white; text-align: center; width: 50px; height: 50px;
+  z-index: 999; position:absolute; border-radius: 50%; animation: spin1 5s infinite linear;}
+.gameOver{ width: 10px; height: 10px; position: absolute; top:50%; left:50%; background: url('../images/gameover.png') no-repeat center;
+background-size: auto 100%; z-index: 9999999999; transform: translateX(-50%) translateY(-50%);}
+.gamePause{width: 40%; max-width: 514px; position: absolute; z-index: 99999999; top:50%; left:50%;
+ transform: translateX(-50%) translateY(-50%); border-radius: 23px; overflow: hidden; cursor: pointer; }
+ .gamePause img {width: 100%; display: block;}
+ .gamePause:hover{background: green;}
+#proction{position: absolute; z-index: 9998; width: 200px; height: 200px; opacity: .3; border-radius: 50%;
+  background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,0) 0%, rgba(0,255,0,1) 100%); /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,0) 0%,rgba(0,255,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0) 0%,rgba(0,255,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */}
+.specialPowerSection{margin: 3% auto; width: 75%; display: none;}
+.specialPowerSection h4{font-size: 1.6rem; color: white; margin-bottom: 5%; font-weight: normal;}
+.displayPower{width: 50px; height: 50px; display: inline-block; background: url('../images/moveFaster.png') no-repeat center;
+background-size: 100% 100% !important; vertical-align: middle;}
+.timeLeft{font-size: 2.5rem; color: white; margin: 0 5%; display: inline-block; vertical-align: middle;}
+
+/*bullet animations*/
+.heroBullet.bullet2{animation: spin1 1s infinite linear;}
+.heroBullet.bullet4{animation: blink1 .5s infinite linear;}
+
+/*intro*/
+.introCont{width: 100%; height: 100%; position: relative; overflow: hidden; background:url('../images/introBg.jpg') no-repeat center center fixed;
+-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
+.name{position: absolute; width: 75%; top: 5vh; left: 50%; transform: translateX(-50%);}
+.name img, .insp img{width: 100%; display: block;}
+.insp{position: absolute; width:10%; max-width: 280px; bottom: 1%; right: 1%;}
+.gameMenu{position: absolute; background: rgba(71,255,241, .2); width: 20%; border-radius: 15px; left: 50%; top:65%;
+transform: translateX(-50%) translateY(-50%); margin: 0; padding:5vh 0; list-style: none;}
+.gameMenu li{margin: 0; padding: 0; width: 100%; height: 10vh; text-align: center; transition: all 2s; cursor: pointer;}
+.gameMenu li img {max-width: 100%; max-height: 100%;}
+.gameMenu li:hover{background: #3290a6; transition: all 2s;}
+.popup{position: absolute; background: rgba(255,255,255, .8); width: 80%; border-radius: 15px; left: 50%; top:50%; height: 85%;
+transform: translateX(-50%) translateY(-50%); margin: 0; padding:1vh 1vw; z-index: 9999; overflow: hidden; display: none;}
+.titleBar{background: rgba(50,144,166, .7); position: relative; margin: -1vh -1vw 1vh; color: white; padding: 10px 1.5vw; font-size: 1.5rem;}
+.closeDailog{ color: black; cursor: pointer;font-size: 1.4rem; position: absolute; top: 0; right: 0; padding: 0 1vw; line-height: 3rem;}
+.closeDailog:hover{color: red;}
+.details{color: black; padding: 1vh 1.5vh; overflow-y: scroll; overflow-y: auto; font-size: 1.2rem; line-height: 2rem; height: 90%;}
+.me{width: 25%; max-width: 300px; float: left; border: 1px solid #333; margin-right: 5%;}
+.me img{width: 100%; display: block;}
+
+
+
+@keyframes spin1 {
+  0% {
+  -moz-transform:rotate(0deg);
+  -webkit-transform:rotate(0deg);
+  -o-transform:rotate(0deg);
+  -ms-transform:rotate(0deg);
+  }
+  100% {
+  -moz-transform:rotate(-360deg);
+  -webkit-transform:rotate(-360deg);
+  -o-transform:rotate(-360deg);
+  -ms-transform:rotate(-360deg);
+  }
+};
+@keyframes blink1 {
+  0% {
+  /*-moz-transform:scale(1);
+  -webkit-transform:scale(1);
+  -o-transform:scale(1);
+  -ms-transform:scale(1);*/
+  transform:scale(1);
+  }
+  100% {
+  /*-moz-transform:scale(1.2);
+  -webkit-transform:scale(1.2);
+  -o-transform:scale(1.2);
+  -ms-transform:scale(1.2);*/
+  transform:scale(1.2);
+  }
+};

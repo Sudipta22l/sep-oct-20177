@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function InvervalTimer(callback, interval) {
+      var timerId, startTime, remaining = 0;
+      var state = 0; //  0 = idle, 1 = running, 2 = paused, 3= resumed
+
+      this.pause = function () {
+          if (state != 1) return;
+
+          remaining = interval - (new Date() - startTime);
+          window.clearInterval(timerId);
+          state = 2;
+      };
+
+      this.resume = function () {
+          if (state != 2) return;
+
+          state = 3;
+          window.setTimeout(this.timeoutCallback, remaining);
+      };
+
+      this.timeoutCallback = function () {
+          if (state != 3) return;
+
+          callback();
+
+          startTime = new Date();
+          timerId = window.setInterval(callback, interval);
+          state = 1;
+      };
+
+      startTime = new Date();
+      timerId = window.setInterval(callback, interval);
+      state = 1;
+  }
+
+  let timer = new InvervalTimer(function () {
+        alert("Done!");
+    }, 5000);
+
+    // window.setTimeout(function () { timer.pause(); window.setTimeout(function () {  timer.resume(); }, 5000); }, 2000);
+    </script>
+    <button type="button" name="button" onclick="timer.pause();">pause</button>
+    <button type="button" name="button" onclick="timer.resume();">resume</button>
+  </body>
+</html>
