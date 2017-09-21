@@ -802,9 +802,11 @@ $(document).ready(() => {
 
   // Creating enemies
   let creatingEnemies = (stage) => {
-    if (!gameData[`stage${stage}`])
+    if (!gameData[`stage${stage}`]) {
       alert('R koto khelbe? ebaar kaaj koro... :P');
-      alert('This is a demo version. You can only play upto 11 stages.')
+      alert('This is a demo version. You can only play upto 11 stages.');
+    }
+
     for (let i = 0; i < gameData[`stage${stage}`].enemies.length; i++) {
       let powerServe = parseInt(Math.random() * 2);
       if (powerServe) {
