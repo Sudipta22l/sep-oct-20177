@@ -1,4 +1,6 @@
 $(document).ready(() => {
+  $('.loading').hide();
+
   let fps = 1000/24;
   let globalCounter = 0;
   let bgMusic = true;
