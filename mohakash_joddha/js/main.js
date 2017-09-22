@@ -1,7 +1,5 @@
-$(window).on('load', function() { $('.loading').hide();
-alert('from load') });
+$(window).on('load', function() { $('.loading').hide();});
 $(document).ready(() => {
-  alert('from ready')
   let fps = 1000/24;
   let globalCounter = 0;
   let bgMusic = true;
