@@ -368,7 +368,7 @@ $(document).ready(() => {
        }
        // create new sky and attach
        if(($('#sky img:last-child').offset().top > (30 + gameSpeed) * -1) && needToAddBg) {
-         const newImg = $("<img>", {src: "images/spaceBg.jpg", "style": `bottom:0px`}); //${$(".gameArea").height() + gameSpeed}
+         const newImg = $("<img>", {src: "images/spaceBg.jpg", "style": `bottom:${$(".gameArea").height()}px`}); //${$(".gameArea").height() + gameSpeed}
          $("#sky").prepend(newImg);
          needToAddBg = false;
        }
