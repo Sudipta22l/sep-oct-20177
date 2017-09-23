@@ -258,20 +258,36 @@ $(document).ready(() => {
    };
 
   //  mouse controls
-   $('.fireBtn').mousedown(() => {mousefire = true; });
-   $('.fireBtn').mouseup(() => { mousefire = false; });
+    $( document ).on( "vmousedown", ".fireBtn", () => {mousefire = true; });
+    $( document ).on( "vmouseup", ".fireBtn", () => {mousefire = false; });
 
-   $('.mouseUp').mousedown(() => {mouseTop = true; });
-   $('.mouseUp').mouseup(() => { mouseTop = false; });
+    $( document ).on( "vmousedown", ".mouseUp", () => {mouseTop = true; });
+    $( document ).on( "vmouseup", ".mouseUp", () => {mouseTop = false; });
 
-   $('.mouseRight').mousedown(() => {mouseRight = true; });
-   $('.mouseRight').mouseup(() => { mouseRight = false; });
+    $( document ).on( "vmousedown", ".mouseRight", () => {mouseRight = true; });
+    $( document ).on( "vmouseup", ".mouseRight", () => {mouseRight = false; });
 
-   $('.mouseDown').mousedown(() => {mouseBottom = true; });
-   $('.mouseDown').mouseup(() => { mouseBottom = false; });
+    $( document ).on( "vmousedown", ".mouseDown", () => {mouseBottom = true; });
+    $( document ).on( "vmouseup", ".mouseDown", () => {mouseBottom = false; });
 
-   $('.mouseLeft').mousedown(() => {mouseLeft = true; });
-   $('.mouseLeft').mouseup(() => { mouseLeft = false; });
+    $( document ).on( "vmousedown", ".mouseLeft", () => {mouseLeft = true; });
+    $( document ).on( "vmouseup", ".mouseLeft", () => {mouseLeft = false; });
+
+
+  //  $('.fireBtn').mousedown(() => {mousefire = true; });
+  //  $('.fireBtn').mouseup(() => { mousefire = false; });
+
+  //  $('.mouseUp').mousedown(() => {mouseTop = true; });
+  //  $('.mouseUp').mouseup(() => { mouseTop = false; });
+
+  //  $('.mouseRight').mousedown(() => {mouseRight = true; });
+  //  $('.mouseRight').mouseup(() => { mouseRight = false; });
+
+  //  $('.mouseDown').mousedown(() => {mouseBottom = true; });
+  //  $('.mouseDown').mouseup(() => { mouseBottom = false; });
+
+  //  $('.mouseLeft').mousedown(() => {mouseLeft = true; });
+  //  $('.mouseLeft').mouseup(() => { mouseLeft = false; });
 
   //  hero bulet fire
    let heroFireFun = () => {
