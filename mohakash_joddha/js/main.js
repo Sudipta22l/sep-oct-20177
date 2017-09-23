@@ -797,6 +797,7 @@ $(document).ready(() => {
     let energy = $('<div>', { css: { top: y, left: x},
     class : 'energy'});
     energy.appendTo('body');
+    $(energy).css({'height':`${$(energy).width()}px`, 'line-height':`${$(energy).width()}px` })
     $(energy).prepend(`<div class="energyVal">${ele.attr('energy')}</div>`);
     $(energy).prepend(`<div class="energyBg"><img src="${enemyData[ele.attr('enemyid')].energyCont}" ></div>`);
   }
@@ -819,7 +820,7 @@ $(document).ready(() => {
          class: `enemy ${gameData['stage'+stage].enemies[i]}`,
          id : `enemy${i}`,
          css : {
-           width : enemyData[gameData[`stage${stage}`].enemies[i]].width,
+           width : (enemyData[gameData[`stage${stage}`].enemies[i]].width * 100) / 1000 +'%',
            left : `${Math.random() * ($('.gameArea').width() - 50)}px`,
            top : `${Math.random() * ($('.gameArea').height() / 3)}px`,
          },
