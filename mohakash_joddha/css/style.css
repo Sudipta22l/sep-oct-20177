@@ -67,7 +67,7 @@ background-size: auto 100%; z-index: 9999999999; transform: translateX(-50%) tra
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */}
 .specialPowerSection{margin: 3% auto; width: 75%; display: none;}
 .specialPowerSection h4{font-size: 1.6rem; color: white; margin-bottom: 5%; font-weight: normal;}
-.displayPower{width: 50px; height: 50px; display: inline-block; background: url('../images/moveFaster.png') no-repeat center;
+.displayPower{width: 7vh; height: 7vh; display: inline-block; background: url('../images/moveFaster.png') no-repeat center;
 background-size: 100% 100% !important; vertical-align: middle;}
 .timeLeft{font-size: 2.5rem; color: white; margin: 0 5%; display: inline-block; vertical-align: middle;}
 
@@ -76,7 +76,7 @@ background-size: 100% 100% !important; vertical-align: middle;}
 .heroBullet.bullet4{animation: blink1 .5s infinite linear;}
 
 /*intro*/
-.introCont{width: 100%; height: 100%; position: relative; overflow: hidden; background:url('../images/introBg.jpg') no-repeat center center fixed;
+.introCont{width: 100%; height: 100%; position: relative;z-index: 99999999; overflow: hidden; background:url('../images/introBg.jpg') no-repeat center center fixed;
 -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
 .name{position: absolute; width: 75%; top: 5vh; left: 50%; transform: translateX(-50%);}
 .name img, .insp img{width: 100%; display: block;}
@@ -95,6 +95,20 @@ transform: translateX(-50%) translateY(-50%); margin: 0; padding:1vh 1vw; z-inde
 .me{width: 25%; max-width: 300px; float: left; border: 1px solid #333; margin-right: 5%;}
 .me img{width: 100%; display: block;}
 .halfInfo{width:49%; display:inline-block; vertical-align: top;}
+
+/*mobile*/
+.mobileControls{width: 100%; position: absolute; bottom: 0; z-index: 9999999;}
+.fireBtn{width: 10vh; height:10vh; background: rgba(255,255,255,.25); position: absolute; right: 2vh; bottom:2vh; border-radius: 50%;}
+.screenNavigation{position: absolute; left: 2vh; bottom: 0; width: 22vh; height: 22vh;}
+.mouseRight{width: 0; height: 0; border-left: 5vh solid rgba(255,255,255,.3);  border-top: 5vh solid transparent;
+	border-bottom: 5vh solid transparent; right:0; top:50%; position: absolute; transform: translateY(-50%);}
+.mouseLeft{width: 0; height: 0; border-right: 5vh solid rgba(255,255,255,.3);  border-top: 5vh solid transparent;
+	border-bottom: 5vh solid transparent; left: 0; top: 50%; position: absolute; transform: translateY(-50%);}
+.mouseUp{width: 0; height: 0; border-left: 5vh solid transparent; border-right: 5vh solid transparent;
+	border-bottom: 5vh solid rgba(255,255,255,.3); left:50%; top:0; position: absolute; transform: translateX(-50%);}
+.mouseDown{width: 0; height: 0; border-left: 5vh solid transparent; border-right: 5vh solid transparent;  border-top: 5vh solid  rgba(255,255,255,.3);
+	 left:50%; bottom: 0; position: absolute;transform: translateX(-50%);}
+
 
 @media all and (max-width:670px){
   .halfInfo{width:100%; display:block; margin: 5px 0; text-align: center;}

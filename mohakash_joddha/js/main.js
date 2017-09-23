@@ -41,6 +41,11 @@ $(document).ready(() => {
   let missionCompleteGoback = 0;
   let missionComplete = false;
   let missionCompleteGo = false;
+  let mousefire = false;
+  let mouseLeft = false;
+  let mouseRight = false;
+  let mouseTop = false;
+  let mouseBottom = false;
 
   // start game
   $('#gameStart').click(function () {
@@ -242,36 +247,55 @@ $(document).ready(() => {
      }
      if ( keys[keys.SPACE] ) {
        // bullet fired
-       if (globalCounter > hero.bulletFired ){
-         hero.bulletFired = globalCounter + hero.bulletInterval;
-
-         let bullet = $('<div>', {
-            class: `heroBullet heroBullet bullet${hero.bulletPower}`,
-            css : {
-              width : `${heroData['hero'+hero.bulletPower].bulletWidth}px`,
-              height : `${heroData['hero'+hero.bulletPower].bulletHeight}px`,
-              background : `url(${heroData['hero'+hero.bulletPower].bulletBg})` ,
-              left : hero.element.offset().left + (hero.element.width()/2 - (heroData['hero'+hero.bulletPower].bulletWidth / 2)) + "px",
-              top : hero.element.offset().top + "px",
-            }
-          }).appendTo('body');
-
-          // play sound
-          if (soundEffects){
-            let id = globalCounter;
-            $(`<audio id="heroBullet_${id}" controls style="display:none">
-              <source src="sounds/hero/bullet1.mp3" type="audio/mpeg">
-              </audio>`).appendTo('body');
-              $(`#heroBullet_${id}`)[0].play();
-              $(`#heroBullet_${id}`)[0].addEventListener("ended", function(){
-                   $(`#heroBullet_${id}`).remove();
-              });
-          }
-
-
-        }
+       heroFireFun();
      }
    };
+
+  //  mouse controls
+   $('.fireBtn').mousedown(() => {mousefire = true; });
+   $('.fireBtn').mouseup(() => { mousefire = false; });
+
+   $('.mouseUp').mousedown(() => {mouseTop = true; });
+   $('.mouseUp').mouseup(() => { mouseTop = false; });
+
+   $('.mouseRight').mousedown(() => {mouseRight = true; });
+   $('.mouseRight').mouseup(() => { mouseRight = false; });
+
+   $('.mouseDown').mousedown(() => {mouseBottom = true; });
+   $('.mouseDown').mouseup(() => { mouseBottom = false; });
+
+   $('.mouseLeft').mousedown(() => {mouseLeft = true; });
+   $('.mouseLeft').mouseup(() => { mouseLeft = false; });
+
+  //  hero bulet fire
+   let heroFireFun = () => {
+     if (globalCounter > hero.bulletFired ){
+       hero.bulletFired = globalCounter + hero.bulletInterval;
+
+       let bullet = $('<div>', {
+          class: `heroBullet heroBullet bullet${hero.bulletPower}`,
+          css : {
+            width : `${heroData['hero'+hero.bulletPower].bulletWidth}px`,
+            height : `${heroData['hero'+hero.bulletPower].bulletHeight}px`,
+            background : `url(${heroData['hero'+hero.bulletPower].bulletBg})` ,
+            left : hero.element.offset().left + (hero.element.width()/2 - (heroData['hero'+hero.bulletPower].bulletWidth / 2)) + "px",
+            top : hero.element.offset().top + "px",
+          }
+        }).appendTo('body');
+
+        // play sound
+        if (soundEffects){
+          let id = globalCounter;
+          $(`<audio id="heroBullet_${id}" controls style="display:none">
+            <source src="sounds/hero/bullet1.mp3" type="audio/mpeg">
+            </audio>`).appendTo('body');
+            $(`#heroBullet_${id}`)[0].play();
+            $(`#heroBullet_${id}`)[0].addEventListener("ended", function(){
+                 $(`#heroBullet_${id}`).remove();
+            });
+        }
+      }
+   }
 
    let hitTestForHero = (ele) => {
      let enemyShip = $('.enemy');
@@ -304,6 +328,13 @@ $(document).ready(() => {
    let mainloop = new InvervalTimer(function () {
        globalCounter++;
        detectCharacterMovement();
+
+      //  mouse controls
+       if (mousefire) heroFireFun();
+       if (mouseLeft) { if (hero.element.offset().left > $(".gameArea").offset().left) { moveCharacter(-1, 0); } }
+       if (mouseRight) { if ((hero.element.offset().left + hero.element.width()) < ($(".gameArea").offset().left + $(".gameArea").width())) {moveCharacter(1, 0);}}
+       if (mouseTop) { if(hero.element.offset().top > hero.speed) {moveCharacter(0, 1);}}
+       if (mouseBottom) { if((hero.element.offset().top + hero.element.height()) < $(".gameArea").height()) {moveCharacter(0, -1);}}
 
        // movements of sky
        $('#sky img').animate({'bottom' : '-='+ gameSpeed+'px' }, 0);
